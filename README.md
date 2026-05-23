@@ -1,4 +1,4 @@
-# Newsletter Automation — WAT Framework Demo
+# Newsletter Automation — WAT Framework
 
 An agentic newsletter pipeline built on the **WAT architecture** (Workflows · Agents · Tools). Given a topic, it researches the web, drafts structured content, generates infographics, renders a branded HTML email, and sends it via Gmail — archiving each issue to Google Drive.
 
