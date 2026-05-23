@@ -1,0 +1,9 @@
+tavily-python
+trafilatura
+Jinja2
+premailer
+requests
+Pillow
+google-auth-oauthlib
+google-api-python-client
+python-dotenv

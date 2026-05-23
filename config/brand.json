@@ -1,0 +1,11 @@
+{
+  "colors": {
+    "navy": "#0B1F3B",
+    "slate": "#1F2937",
+    "bg": "#F8FAFC",
+    "divider": "#E5E7EB",
+    "accent": "#10B981"
+  },
+  "font_family": "Inter",
+  "logo_path": "./brand_assets/logo.png"
+}

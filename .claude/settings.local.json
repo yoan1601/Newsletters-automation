@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Select-Object FullName, PSIsContainer)",
+      "Bash(Sort-Object PSIsContainer -Descending)",
+      "Bash(Get-ChildItem -Path \"d:\\\\HARENA\\\\AI\\\\Agentic Workflows\\\\Newsletters Demo\" -Recurse -Name)",
+      "Bash(Sort-Object)",
+      "WebSearch"
+    ]
+  }
+}

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>{{ subject }}</title>
+  <!--[if mso]>
+  <noscript>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+  </noscript>
+  <![endif]-->
+  <!--
+    Inter is loaded here for browser preview. Email clients strip <head>,
+    so all font-family declarations fall back to Arial, Helvetica, sans-serif.
+    premailer inlines the CSS below before sending.
+  -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    /* Base reset */
+    body, table, td, p, a { margin: 0; padding: 0; border: 0; }
+    body { background-color: #F8FAFC; font-family: 'Inter', Arial, Helvetica, sans-serif; font-size: 15px; color: #1F2937; -webkit-text-size-adjust: 100%; }
+    img { border: 0; outline: none; display: block; }
+    a { color: #10B981; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Outer wrapper */
+    .wrapper { width: 100%; background-color: #F8FAFC; padding: 32px 0; }
+
+    /* Main container — 600px max, centered */
+    .container { width: 600px; max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 4px; overflow: hidden; }
+
+    /* Header */
+    .header { background-color: #0B1F3B; padding: 40px 48px 36px; }
+    .header-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #10B981; margin-bottom: 12px; }
+    .header-title { font-size: 26px; font-weight: 600; color: #F8FAFC; line-height: 1.3; margin-bottom: 8px; }
+    .header-date { font-size: 12px; color: #9CA3AF; letter-spacing: 0.5px; }
+
+    /* Logo in header */
+    .header-logo { margin-bottom: 20px; }
+    .header-logo img { height: 32px; width: auto; }
+
+    /* Body content */
+    .body { padding: 48px 48px 0; }
+
+    /* Answer summary block */
+    .summary-block { background-color: #F8FAFC; border-left: 3px solid #10B981; padding: 20px 24px; margin-bottom: 40px; border-radius: 0 4px 4px 0; }
+    .summary-block p { font-size: 15px; line-height: 1.7; color: #1F2937; }
+
+    /* Section divider */
+    .divider { height: 1px; background-color: #E5E7EB; margin: 0 48px; }
+
+    /* Section */
+    .section { padding: 40px 48px; }
+    .section-number { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #10B981; margin-bottom: 10px; }
+    .section-title { font-size: 19px; font-weight: 600; color: #0B1F3B; line-height: 1.35; margin-bottom: 16px; }
+    .section-body { font-size: 15px; line-height: 1.75; color: #1F2937; margin-bottom: 20px; }
+    .section-body p { margin-bottom: 14px; }
+    .source-link { font-size: 12px; color: #6B7280; }
+    .source-link a { color: #6B7280; text-decoration: underline; }
+
+    /* Infographic block */
+    .infographic-block { margin: 32px 0; text-align: center; }
+    .infographic-block img { width: 100%; max-width: 504px; height: auto; border-radius: 4px; }
+    .infographic-caption { font-size: 12px; color: #9CA3AF; margin-top: 10px; font-style: italic; }
+
+    /* Key takeaway callout — used sparingly (max 2 per issue) */
+    .callout { background-color: #0B1F3B; padding: 24px 28px; border-radius: 4px; margin: 24px 0; }
+    .callout p { font-size: 15px; line-height: 1.65; color: #F8FAFC; }
+    .callout strong { color: #10B981; }
+
+    /* Footer */
+    .footer { padding: 40px 48px; border-top: 1px solid #E5E7EB; }
+    .footer-sources { margin-bottom: 28px; }
+    .footer-sources-label { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #6B7280; margin-bottom: 12px; }
+    .footer-sources ul { margin: 0; padding: 0; list-style: none; }
+    .footer-sources li { font-size: 12px; color: #6B7280; margin-bottom: 6px; padding-left: 12px; position: relative; }
+    .footer-sources li::before { content: "—"; position: absolute; left: 0; color: #D1D5DB; }
+    .footer-sources a { color: #6B7280; text-decoration: underline; word-break: break-all; }
+    .footer-meta { font-size: 11px; color: #9CA3AF; line-height: 1.6; }
+    .footer-meta a { color: #9CA3AF; text-decoration: underline; }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <!-- Main 600px container -->
+  <table class="container" width="600" cellpadding="0" cellspacing="0" role="presentation">
+
+    <!-- HEADER -->
+    <tr>
+      <td class="header">
+        {% if logo_base64 %}
+        <div class="header-logo">
+          <img src="data:image/png;base64,{{ logo_base64 }}" alt="Logo" height="32" />
+        </div>
+        {% endif %}
+        <div class="header-eyebrow">{{ eyebrow | default("Intelligence Brief") }}</div>
+        <div class="header-title">{{ title }}</div>
+        <div class="header-date">{{ date }}</div>
+      </td>
+    </tr>
+
+    <!-- SUMMARY -->
+    <tr>
+      <td class="body">
+        {% if answer_summary %}
+        <div class="summary-block">
+          <p>{{ answer_summary }}</p>
+        </div>
+        {% endif %}
+      </td>
+    </tr>
+
+    <!-- SECTIONS -->
+    {% for section in sections %}
+
+    <tr><td class="divider"></td></tr>
+
+    <tr>
+      <td class="section">
+        <div class="section-number">{{ "%02d" | format(loop.index) }}</div>
+        <div class="section-title">{{ section.title }}</div>
+        <div class="section-body">
+          {% for paragraph in section.body.split('\n\n') %}
+          <p>{{ paragraph }}</p>
+          {% endfor %}
+        </div>
+
+        {% if section.callout %}
+        <div class="callout"><p>{{ section.callout }}</p></div>
+        {% endif %}
+
+        {% if section.infographic_base64 %}
+        <div class="infographic-block">
+          <img src="data:image/png;base64,{{ section.infographic_base64 }}"
+               alt="{{ section.infographic_alt | default('Infographic') }}"
+               width="504" />
+          {% if section.infographic_caption %}
+          <div class="infographic-caption">{{ section.infographic_caption }}</div>
+          {% endif %}
+        </div>
+        {% endif %}
+
+        {% if section.source_url %}
+        <div class="source-link">Source: <a href="{{ section.source_url }}">{{ section.source_label | default(section.source_url) }}</a></div>
+        {% endif %}
+      </td>
+    </tr>
+
+    {% endfor %}
+
+    <!-- FOOTER -->
+    <tr>
+      <td class="footer">
+        {% if sources %}
+        <div class="footer-sources">
+          <div class="footer-sources-label">Sources</div>
+          <ul>
+            {% for source in sources %}
+            <li><a href="{{ source.url }}">{{ source.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+
+        <div class="footer-meta">
+          Generated {{ date }} &nbsp;·&nbsp;
+          Research depth: {{ sections | length }} sections
+          {% if sender_email %}
+          &nbsp;·&nbsp; Sent by {{ sender_email }}
+          {% endif %}
+        </div>
+      </td>
+    </tr>
+
+  </table>
+</div>
+</body>
+</html>
